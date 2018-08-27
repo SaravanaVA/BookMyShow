@@ -1,27 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
+import { CommonserviceService } from '../services/commonservice.service';
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
 })
-export class MovieListComponent implements OnInit {
+export class MovieListComponent implements OnInit, DoCheck {
 
   movieList: Array<any>;
 
-  constructor() { }
+  constructor(public commonserviceService: CommonserviceService) { }
 
-  ngOnInit() {
-    this.movieList = [
-      {url: '../../assets/image/movies/movie1.jpg', name: 'KK', location: 'Chennai', date: 'Sep 7-8'},
-      {url: '../../assets/image/movies/movie2.jpg', name: 'Geetha Govindam', location: 'All location', date: 'Sep 7-8'},
-      {url: '../../assets/image/movies/movie3.jpg', name: 'Pyar prema kadhal', location: 'Chennai', date: 'Sep 7-8'},
-      {url: '../../assets/image/movies/movie4.jpg', name: 'KKS', location: 'Chennai', date: 'Sep 7-8'},
-      {url: '../../assets/image/movies/movie5.jpg', name: 'Alpha', location: 'World wide', date: 'Sep 7-8'},
-      {url: '../../assets/image/movies/movie6.jpg', name: 'Vishvaroopam 2', location: 'Chennai', date: 'Sep 7-8'},
-      {url: '../../assets/image/movies/movie7.jpg', name: 'HPJ', location: 'Chennai', date: 'Sep 7-8'},
-      {url: '../../assets/image/movies/movie8.jpg', name: 'MI', location: 'Chennai', date: 'Sep 7-8'},
-    ]
+  ngOnInit() {}
+
+  ngDoCheck() {
+    //getting movie from common service
+    this.movieList = this.commonserviceService.getMovieList();
   }
-
 }

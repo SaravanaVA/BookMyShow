@@ -1,3 +1,26 @@
-<p>
-  search-movie works!
-</p>
+<div class="form-group movieSearch">
+    <div class="dropdown">
+        <button class="btn btn-danger dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ALL
+        </button>
+        <div class="dropdown-menu" aria-labelledby="about-us">
+        <a class="dropdown-item" href="#">All Movies</a>
+        <a class="dropdown-item" href="#">All Events</a>
+        <a class="dropdown-item" href="#">Add Movies</a>
+        <a class="dropdown-item" href="#">Delete Movies</a>
+        </div>
+        </div>
+  <span class="fa fa-search searchIcon"></span>
+  <input type="text" class="form-control" [(ngModel)]="searchText" (change)="filterList()" placeholder="Search for Movies, Events, Plays  and Sports"
+    id="movieInputs">
+
+  <!-- Displaying movies list, below the user's input -->
+  <div class="list-group displayMovieList" *ngIf="searchText">
+    <div class="list-group-item list-group-item-action active">
+      Availabe Movies List:
+    </div>
+    <ng-container *ngFor="let movies of movieList | searchMovie : searchText">
+      <a href="#" class="list-group-item list-group-item-action">{{movies}}</a>
+    </ng-container>
+  </div>
+</div>

@@ -1,10 +1,12 @@
-<div *ngFor="let movie of movieList" class="recentMovies">
-  <div id="movieList" class="card" style="width: 18rem;">
-    <img class="card-img-top" src={{movie.url}} alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{movie.name}}</h5>
-      <p class="card-text">{{movie.location}}</p>
-      <p class="card-text movieDate">{{movie.date}}</p>
+<div *ngFor="let outerArry of movieList">
+  <div *ngFor="let movie of outerArry" class="recentMovies">
+    <div id="movieList" class="card" style="width: 18rem;">
+      <img class="card-img-top" src={{movie.url}} alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{movie.name}}</h5>
+        <p class="card-text">{{movie.location}}</p>
+        <p class="card-text movieDate">{{movie.date}}</p>
+      </div>
     </div>
-  </div>  
+  </div>
 </div>

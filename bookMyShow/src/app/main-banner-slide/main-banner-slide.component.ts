@@ -10,13 +10,13 @@ export class MainBannerSlideComponent implements OnInit {
   //variabels for main banner
   title = 'bookMyShow';
   imageUrls: Array<any>;
-  height: string = '400px';
+  height: string = '500px';
   minHeight: string;
   arrowSize: string = '30px';
   showArrows: boolean = true;
   disableSwiping: boolean = false;
   autoPlay: boolean = true;
-  autoPlayInterval: number = 5000;
+  autoPlayInterval: number = 20000;
   stopAutoPlayOnSlide: boolean = true;
   debug: boolean = true;
   backgroundSize: string = 'cover';

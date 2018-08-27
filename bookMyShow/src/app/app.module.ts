@@ -1,34 +1,17 @@
-// import { BrowserModule } from '@angular/platform-browser';
-// import { NgModule } from '@angular/core';
-
-// import { AppComponent } from './app.component';
-
-// import {SlideshowModule} from 'ng-simple-slideshow';
-
-
-// @NgModule({
-//   declarations: [
-//     AppComponent
-//   ],
-//   imports: [
-//     BrowserModule, 
-//     SlideshowModule
-//   ],
-//   providers: [],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule { }
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from "@angular/router";
+
 import { AppComponent } from './app.component';
+import {appRoutes } from './app.routing';
 import { SlideshowModule } from './slideshow/slideshow.module';
 import { HeaderComponent } from './header/header.component';
 import { MainBannerSlideComponent } from './main-banner-slide/main-banner-slide.component';
 import { LowerBannerSlideComponent } from './lower-banner-slide/lower-banner-slide.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchMovieComponent } from './search-movie/search-movie.component';
+import { SearchMoviePipe } from './search-movie/search-movie.pipe';
 
 @NgModule({
   declarations: [
@@ -38,13 +21,20 @@ import { SearchMovieComponent } from './search-movie/search-movie.component';
     LowerBannerSlideComponent,
     MovieListComponent,
     SearchMovieComponent,
+    //for search movie list
+    SearchMoviePipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes, 
+      { //enableTracing: true 
+      }),
     SlideshowModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
