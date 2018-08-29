@@ -47,4 +47,11 @@ export class CommonserviceService {
       this.updatedMovieList.push(this.movieList.filter(x => x.name.toLocaleLowerCase() == updatedMovie[flag].toLocaleLowerCase()));
     }
   }
+
+  addNewMovie(newMovie) {
+    this.movieList.push(newMovie);
+  }
+  deleteMovie(index) {
+    this.movieList.splice(index, 1);
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { CommonserviceService } from '../services/commonservice.service';
+import { Router } from "@angular/router";
 import { SearchMoviePipe } from './search-movie.pipe'
 
 @Component({
@@ -13,7 +14,7 @@ export class SearchMovieComponent implements OnInit, DoCheck {
   movieList: Array<string>;
   searchText: string;
 
-  constructor(public commonserviceService: CommonserviceService, private searchMoviePipe: SearchMoviePipe ) { }
+  constructor(public commonserviceService: CommonserviceService, private searchMoviePipe: SearchMoviePipe, private router: Router, ) { }
 
   ngOnInit() {
     this.movieList = this.commonserviceService.getMovieListName();    
@@ -23,5 +24,9 @@ export class SearchMovieComponent implements OnInit, DoCheck {
   }
   updateEvent(message) {
     this.commonserviceService.updateMessages(message);
+  }
+  addMovie() {
+    //console.log('test');
+    this.router.navigate(["/update"]);
   }
 }
