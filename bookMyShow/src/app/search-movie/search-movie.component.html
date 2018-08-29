@@ -1,13 +1,13 @@
-<div class="form-group movieSearch">
+<!-- <div class="form-group movieSearch">
     <div class="dropdown">
         <button class="btn btn-danger dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         ALL
         </button>
         <div class="dropdown-menu" aria-labelledby="about-us">
-        <a class="dropdown-item" href="#">All Movies</a>
-        <a class="dropdown-item" href="#">All Events</a>
-        <a class="dropdown-item" href="#">Add Movies</a>
-        <a class="dropdown-item" href="#">Delete Movies</a>
+        <a class="dropdown-item" (click)="updateEvent('All Movies')" href="#">All Movies</a>
+        <a class="dropdown-item" (click)="updateEvent('All Events')" href="#">All Events</a>
+        <a class="dropdown-item" (click)="updateEvent('Add Movies')" href="#">Add Movies</a>
+        <a class="dropdown-item" (click)="updateEvent('Delete Movies')" href="#">Delete Movies</a>
         </div>
         </div>
   <span class="fa fa-search searchIcon"></span>
@@ -15,7 +15,7 @@
     id="movieInputs">
 
   <!-- Displaying movies list, below the user's input -->
-  <div class="list-group displayMovieList" *ngIf="searchText">
+  <!--<div class="list-group displayMovieList" *ngIf="searchText">
     <div class="list-group-item list-group-item-action active">
       Availabe Movies List:
     </div>
@@ -23,4 +23,23 @@
       <a href="#" class="list-group-item list-group-item-action">{{movies}}</a>
     </ng-container>
   </div>
+</div> -->
+<div class="container">
+  <div class="row">
+<div class="input-group col-6">
+  <div class="input-group-prepend">
+    <button class="btn btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALL</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" (click)="updateEvent('All Movies')">All Movies</a>
+      <a class="dropdown-item" (click)="updateEvent('All Events')">All Events</a>
+      <a class="dropdown-item" (click)="updateEvent('Add Movies')">Add Movies</a>
+      <a class="dropdown-item" (click)="updateEvent('Delete Movies')">Delete Movies</a>
+    </div>
+  </div>
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+  </div>
+  <input type="text" class="form-control" (change)="filterList()" [(ngModel)]="searchText" placeholder="Search for Movies, Events, Plays  and Sports" aria-label="Text input with dropdown button">
+</div>
+</div>
 </div>

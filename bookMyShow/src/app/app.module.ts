@@ -12,6 +12,8 @@ import { LowerBannerSlideComponent } from './lower-banner-slide/lower-banner-sli
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchMovieComponent } from './search-movie/search-movie.component';
 import { SearchMoviePipe } from './search-movie/search-movie.pipe';
+import { UpdateMovieListComponent } from './update-movie-list/update-movie-list.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { SearchMoviePipe } from './search-movie/search-movie.pipe';
     SearchMovieComponent,
     //for search movie list
     SearchMoviePipe,
+    UpdateMovieListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { forEach } from '@angular/router/src/utils/collection';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,13 @@ export class CommonserviceService {
   searchEnabled: boolean = false;
   updatedMovieList;
 
+  public updateMessage = new Subject<string>()
+
   constructor() { }
+  
+  updateMessages(message) {
+    this.updateMessage.next(message);
+  }
 
   movieList = [
     { url: '../../assets/image/movies/movie1.jpg', name: 'KK', location: 'Chennai', date: 'Sep 7-8' },

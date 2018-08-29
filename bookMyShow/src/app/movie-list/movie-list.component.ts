@@ -10,9 +10,17 @@ export class MovieListComponent implements OnInit, DoCheck {
 
   movieList: Array<any>;
 
+  inputMessage: string;
+
   constructor(public commonserviceService: CommonserviceService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.commonserviceService.updateMessage.subscribe(
+      (message)=>{
+        console.log('message in movie list component--'+message)
+      }
+    );
+  }
 
   ngDoCheck() {
     //getting movie from common service

@@ -21,4 +21,7 @@ export class SearchMovieComponent implements OnInit, DoCheck {
   ngDoCheck() {
     this.commonserviceService.updateMovieList(this.searchMoviePipe.transform(this.movieList,this.searchText));
   }
+  updateEvent(message) {
+    this.commonserviceService.updateMessages(message);
+  }
 }
